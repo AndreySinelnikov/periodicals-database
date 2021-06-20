@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public interface CrudDao<T> {
 
-    ResultSet get(Integer id) throws SQLException;
+    ResultSet getById(Integer id) throws SQLException;
 
     ResultSet getAll() throws SQLException;
 

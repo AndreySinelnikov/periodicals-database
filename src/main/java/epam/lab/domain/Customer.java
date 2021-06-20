@@ -10,7 +10,7 @@ public class Customer {
     private String postcode;
     private String address;
 
-    public Customer(Integer id, String firstname, String lastname, String middlename, String postcode, String address) {
+    public Customer(Integer id, String lastname, String firstname, String middlename, String postcode, String address) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;

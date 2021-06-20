@@ -13,10 +13,15 @@ public class CustomerDaoImpl implements CrudDao<Customer> {
         this.con.setAutoCommit(true);
     }
 
-    public ResultSet get(Integer id) throws SQLException {
+    public ResultSet getById(Integer id) throws SQLException {
         Statement st = con.createStatement();
 
         return st.executeQuery("SELECT * FROM clients WHERE id = '" + id + "'");
+    }
+
+    public ResultSet getByLastname(String lastname) throws SQLException {
+        Statement st = con.createStatement();
+        return st.executeQuery("SELECT * FROM clients WHERE lastname = '" + lastname + "'");
     }
 
     @Override
@@ -39,7 +44,7 @@ public class CustomerDaoImpl implements CrudDao<Customer> {
         ps.setInt(6, customer.getId());
         ps.executeUpdate();
 
-        return this.get(customer.getId());
+        return this.getById(customer.getId());
     }
 
     @Override
@@ -55,7 +60,7 @@ public class CustomerDaoImpl implements CrudDao<Customer> {
         ps.setString(5, customer.getAddress());
         ps.executeUpdate();
 
-        return this.get(customer.getId());
+        return this.getById(customer.getId());
     }
 
     @Override
@@ -68,11 +73,5 @@ public class CustomerDaoImpl implements CrudDao<Customer> {
         return ps.executeUpdate();
     }
 
-    public static void main(String[] args) throws SQLException {
-        CustomerDaoImpl cus = new CustomerDaoImpl();
-        ResultSet rs = cus.get(1);
-        //rs.next();
-        System.out.println(rs.getString("lastname"));
-    }
 }
 
