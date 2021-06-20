@@ -14,7 +14,7 @@ public class CustomerService {
 
     public Customer create(String customerRecord) throws SQLException {
         CustomerDaoImpl customerDao = new CustomerDaoImpl();
-        String[] splitRecord = customerRecord.split(" ");
+        String[] splitRecord = customerRecord.split(";");
         Customer entry = new Customer(0, splitRecord[0], splitRecord[1], splitRecord[2], splitRecord[3], splitRecord[4]);
 
         ResultSet rs = customerDao.create(entry);
@@ -40,10 +40,10 @@ public class CustomerService {
         return created;
     }
 
-    public Customer getByLastname(String lastname) throws SQLException {
+    public Customer getById(Integer id) throws SQLException {
         CustomerDaoImpl customerDao = new CustomerDaoImpl();
 
-        ResultSet rs = customerDao.getByLastname(lastname);
+        ResultSet rs = customerDao.getById(id);
         rs.next();
 
         Customer created = new Customer(rs.getInt("id"), rs.getString("lastname"), rs.getString("firstname"),

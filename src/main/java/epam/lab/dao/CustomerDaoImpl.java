@@ -49,8 +49,7 @@ public class CustomerDaoImpl implements CrudDao<Customer> {
 
     @Override
     public ResultSet create(Customer customer) throws SQLException {
-        String query = "INSERT INTO clients (lastname, firstname, middlename, postcode, address) VALUES" +
-                "(?, ?, ?, ?, ?)";
+        String query = "INSERT INTO clients (lastname, firstname, middlename, postcode, address) VALUES (?, ?, ?, ?, ?)";
 
         PreparedStatement ps = con.prepareStatement(query);
         ps.setString(1, customer.getLastname());
