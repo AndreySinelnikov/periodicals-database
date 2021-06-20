@@ -1,7 +1,5 @@
 package epam.lab.console;
 
-import epam.lab.dao.ConnectionFactory;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;

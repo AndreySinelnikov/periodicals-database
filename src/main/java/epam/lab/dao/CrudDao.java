@@ -1,16 +1,18 @@
 package epam.lab.dao;
 
-import java.util.List;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 
 public interface CrudDao<T> {
 
-    T get(Long id);
+    ResultSet get(Integer id) throws SQLException;
 
-    List<T> getAll();
+    ResultSet getAll() throws SQLException;
 
-    T update(Long id);
+    ResultSet update(T object) throws SQLException;
 
-    //T create(T teacher);
+    ResultSet create(T object) throws SQLException;
 
-    T delete(Long id);
+    Integer delete(Integer id) throws SQLException;
 }

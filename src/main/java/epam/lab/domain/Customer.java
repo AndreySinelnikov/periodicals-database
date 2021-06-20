@@ -2,12 +2,27 @@ package epam.lab.domain;
 
 public class Customer {
 
+
     private Integer id;
     private String firstname;
     private String lastname;
     private String middlename;
     private String postcode;
     private String address;
+
+    public Customer(Integer id, String firstname, String lastname, String middlename, String postcode, String address) {
+        this.id = id;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.middlename = middlename;
+        this.postcode = postcode;
+        this.address = address;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
 
     public String getFirstname() {
         return firstname;
@@ -49,5 +64,8 @@ public class Customer {
         this.address = address;
     }
 
-
+    public String toString() {
+        return String.format("ID: %s, Name: %s %s %s, Postcode: %s, Address: %s",
+                id, lastname, firstname, middlename, postcode, address);
+    }
 }
